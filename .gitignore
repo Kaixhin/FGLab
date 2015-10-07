@@ -1,0 +1,8 @@
+# Dependency directory
+node_modules
+
+# Bower components
+bower_components
+
+# Environment configuration variables
+.env
