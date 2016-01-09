@@ -1,8 +1,8 @@
-# Bayesian Optimisation (FGLab)
+# GP Bayesian Optimisation (FGLab)
 
 ## Introduction
 
-Bayesian optimisation is a global optimisation technique, which treats the function it must optimise as a random function. It places a prior on the function, and evaluates the function to collect data points. Each evaluation is used to update the posterior distribution over the function, which in turn is used to select the next point to evaluate. This allows Bayesian optimisation to be data-efficient, and hence it is a suitable technique for optimising hyperparameters of another system. This example will utilise the Spearmint library [1-5] in order to optimise the Branin-Hoo function.
+Bayesian optimisation is a global optimisation technique, which treats the function it must optimise as a random function. It places a prior on the function, and evaluates the function to collect data points. Each evaluation is used to update the posterior distribution over the function, which in turn is used to select the next point to evaluate. This allows Bayesian optimisation to be data-efficient, and hence it is a suitable technique for optimising hyperparameters of another system. This example will utilise the Spearmint library [1-5] in order to optimise the Branin-Hoo function with a Gaussian process.
 
 This example has been adapted from the [noisy Branin-Hoo example](https://github.com/HIPS/Spearmint/tree/master/examples/noisy). `branin_noisy.py` has been set up to take command line arguments and save its results in a JSON file, whilst `fglab.py` acts as an intermediary between Spearmint and the function to optimise by using FGLab's API.
 
@@ -16,8 +16,8 @@ This example has been adapted from the [noisy Branin-Hoo example](https://github
 
 ## Instructions
 
-1. Create a new project from [bayesian-optimisation.json](bayesian-optimisation.json).
-1. Set up [FGMachine](https://github.com/Kaixhin/FGMachine/blob/master/examples/Bayesian-Optimisation) and run Spearmint.
+1. Create a new project from [gp-bayesian-optimisation.json](gp-bayesian-optimisation.json).
+1. Set up [FGMachine](https://github.com/Kaixhin/FGMachine/blob/master/examples/GP-Bayesian-Optimisation) and run Spearmint.
 
 ## Citations
 
