@@ -1,0 +1,26 @@
+{
+  "x1": {
+    "type": "float",
+    "default": 0.5
+  },
+  "x2": {
+    "type": "float",
+    "default": 0.5
+  },
+  "x3": {
+    "type": "float",
+    "default": 0.5
+  },
+  "x4": {
+    "type": "float",
+    "default": 0.5
+  },
+  "x5": {
+    "type": "float",
+    "default": 0.5
+  },
+  "x6": {
+    "type": "float",
+    "default": 0.5
+  }
+}
