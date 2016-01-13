@@ -32,6 +32,37 @@
         <li><a href="https://github.com/Kaixhin/FGLab">FGLab</a></li>
         <li><a href="https://github.com/Kaixhin/FGMachine">FGMachine</a></li>
       </ul>
+      
+      <h2>Quickstart</h2>
+      <ol>
+        <li>Install: <a href="https://github.com/Kaixhin/FGLab#installation">FGLab</a> and <a href="https://github.com/Kaixhin/FGMachine#installation">FGMachine</a></li>
+        <li><code>code.py</code>: Adjust your machine learning code to take command-line inputs, e.g. <code>x</code></a></li>
+        <li><code>code.json</code>: Create a project schema to match the command-line inputs, e.g.
+          <pre>
+            {
+              "x": {
+                "type": "int",
+                "default": 1
+              }
+            }
+          </pre>
+        </li>
+        <li>Upload `code.json` to FGLab: Go to <a href="http://localhost:5080">http://localhost:5080</a>. Under New Project, choose the project schema to upload and create project. Copy the project ID, e.g. <code>562237f33774694c5a4814bb</code></li>
+        <li><code>projects.json</code>: In the FGMachine folder, create a new `projects.json` with the following format:
+          <pre>
+            "<project_id>": {
+              "cwd": "<working directory (e.g. .)>",
+              "command": "<program (e.g. python)>",
+              "args": "<first command line options (e.g. code.py)>",
+              "options": "<command line options style for options (e.g. double-dash)>",
+              "capacity": "<machine capacity needed (as a fraction) (e.g. 0.2)>",
+              "results": "<results directory (without experiment ID) (e.g. results)>"
+            }
+          </pre>
+          Replace <code><project_id></code> with the one copied earlier.
+        </li>
+        <li>Run experiment: Go to <a href="http://localhost:5080">http://localhost:5080</a>. Click new experiment and submit.</li>
+      </ol>
 
       <h2>Screenshots</h2>
       <h3>Optimisation</h3>
