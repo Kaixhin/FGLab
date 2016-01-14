@@ -19,11 +19,11 @@
 
     <section class="main-content">
       <h2>Overview</h2>
-      <p><strong>FGLab is a machine learning dashboard, designed to facilitate performing experiments. Experiment details and results are sent to a database, which allows analytics to be performed after their completion. The server is <a href="https://github.com/Kaixhin/FGLab">FGLab</a>, and the clients are <a href="https://github.com/Kaixhin/FGMachine">FGMachines</a>.</strong></p>
+      <p><strong>FGLab is a machine learning dashboard, designed to make performing experiments easier. Experiment details and results are sent to a database, which allows analytics to be performed after their completion. The server is <a href="https://github.com/Kaixhin/FGLab">FGLab</a>, and the clients are <a href="https://github.com/Kaixhin/FGMachine">FGMachines</a>.</strong></p>
       <br>
       <p style="text-align: center;"><img src="images/client-server.png" alt="Client-server model" style="width: 500px; max-width: 100%;"></p>
       <br>
-      <p><strong>One creates <em>projects</em> on FGLab, and corresponding <em>project implementations</em> on FGMachine, through the use of different JSON schemas. <em>Experiments</em> are submitted via FGLab, and an available FGMachine client will spawn machine learning code that will conduct the experiment.</strong></p>
+      <p><strong>After creating <em>projects</em> on FGLab, you write corresponding <em>project implementations</em> on FGMachine. This is done through the use of different JSON schemas. <em>Experiments</em> are submitted via FGLab, and an available FGMachine client will spawn your machine learning code that will conduct the experiment.</strong></p>
       <br>
       <p style="text-align: center;"><img src="images/project-id.png" alt="Client-server model" style="width: 500px; max-width: 100%;"></p>
       <br>
@@ -35,19 +35,23 @@
       
       <h2>Quickstart</h2>
       <ol>
-        <li>Install: <a href="https://github.com/Kaixhin/FGLab#installation">FGLab</a> and <a href="https://github.com/Kaixhin/FGMachine#installation">FGMachine</a></li>
-        <li><code>code.py</code>: Adjust your machine learning code to take command-line inputs, e.g. <code>x</code></a></li>
-        <li><code>code.json</code>: Create a project schema to match the command-line inputs, e.g.
+        <li><strong>Install:</strong> <a href="https://github.com/Kaixhin/FGLab#installation">FGLab</a> and <a href="https://github.com/Kaixhin/FGMachine#installation">FGMachine</a></li>
+        <li><strong>Code:</strong> Adjust your machine learning code, e.g. <code>code.py</code>, to take command-line inputs, e.g. <code>x, y</code></a></li>
+        <li><strong>Project schema:</strong> Create a project schema, e.g. <code>proj.json</code>, to match the command-line inputs, e.g.<br>
           <pre>
   {
     "x": {
       "type": "int",
-      "default": 1
+      "default": -1
+    },
+    "y": {
+      "type": "float",
+      "default": 2.5
     }
   }</pre>
         </li>
-        <li>Upload `code.json` to FGLab: Go to <a href="http://localhost:5080">http://localhost:5080</a>. Under New Project, choose the project schema to upload and create project. Copy the project ID, e.g. <code>562237f33774694c5a4814bb</code></li>
-        <li><code>projects.json</code>: In the FGMachine folder, create a new `projects.json` with the following format:
+        <li><strong>Create project:</strong> Go to FGLab at <a href="http://localhost:5080">http://localhost:5080</a>. Under New Project, choose the project schema, e.g. <code>proj.json</code>, to upload, then create the project.</li>
+        <li><strong>Create project implementation:</strong> In FGLab, click the add button to set up a template in FGMachine's <code>projects.json</code>. In the FGMachine folder, adjust <code>projects.json</code> with the following format:<br>
           <pre>
   "&lt;project_id&gt;": {
     "cwd": "&lt;working directory (e.g. .)&gt;",
@@ -57,10 +61,10 @@
     "capacity": "&lt;machine capacity needed (as a fraction) (e.g. 0.2)&gt;",
     "results": "&lt;results directory (without experiment ID) (e.g. ./results)&gt;"
   }</pre>
-          Replace <code>&lt;project_id&gt;</code> with the one copied earlier.
         </li>
-        <li>Run experiment: Go to <a href="http://localhost:5080">http://localhost:5080</a>. Click new experiment and submit.</li>
+        <li><strong>Run experiment:</strong> In FGLab, click New Experiment and Submit.</li>
       </ol>
+      <p>You've just set up FGLab, one instance of FGMachine, and run an experiment! To see what else you can do, check out the <a href="https://github.com/Kaixhin/FGLab">full docs</a>.</p>
 
       <h2>Screenshots</h2>
       <h3>Optimisation</h3>
