@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FGLab: Experimental Dashboard</title>
+    <meta name="description" content="Presentation on FGLab">
+    <meta name="author" content="Kai Arulkumaran">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/theme/sky.min.css" id="theme">
+    <style>
+      .reveal section img {
+        background: none;
+        max-width: 50%;
+        border: none;
+        box-shadow: none;
+      }
+    </style>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/print/pdf.min.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/print/paper.min.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <img src="fglab-logo.png" style="max-width: 80%; margin: 0;">
+          <h2>Experimental Dashboard</h2>
+          <p><a href="http://kaixhin.com">Kai Arulkumaran</a> / <a href="https://twitter.com/KaiLashArul">@KaiLashArul</a></p>
+          <p>2016-02-17</p>
+        </section>
+
+        <section>
+          <h3>Stages in Science</h3>
+          <ol>
+            <li><strong>Exploration:</strong> Forming hypotheses</li>
+            <li><strong>Prototyping:</strong> Forming methodology</li>
+            <li><strong>Pre-publication:</strong> Validating results</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Overview</h3>
+          <figure>
+            <img src="client-server.png">
+            <figcaption>FGLab (server) with FGMachines (clients)</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h3>Projects</h3>
+          <figure>
+            <img src="project-id.png">
+            <figcaption>Project specified on FGLab, project implementation specified on FGMachine</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>Live Demo</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/js/reveal.min.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // reveal.js plugins
+        dependencies: []
+      });
+    </script>
+  </body>
+</html>
