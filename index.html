@@ -13,7 +13,7 @@
     <style>
       .reveal section img {
         background: none;
-        max-width: 50%;
+        max-width: 45%;
         border: none;
         box-shadow: none;
       }
@@ -34,37 +34,81 @@
         <section>
           <img src="fglab-logo.png" style="max-width: 80%; margin: 0;">
           <h2>Experimental Dashboard</h2>
+          <p><a href="https://kaixhin.github.io/FGLab/">https://kaixhin.github.io/FGLab/</a></p>
+          <hr>
           <p><a href="http://kaixhin.com">Kai Arulkumaran</a> / <a href="https://twitter.com/KaiLashArul">@KaiLashArul</a></p>
           <p>2016-02-17</p>
         </section>
 
         <section>
           <h3>Stages in Science</h3>
-          <ol>
+          <ol style="white-space: nowrap;">
             <li><strong>Exploration:</strong> Forming hypotheses</li>
-            <li><strong>Prototyping:</strong> Forming methodology</li>
+            <li class="fragment highlight-blue"><strong>Prototyping:</strong> Forming methodology</li>
             <li><strong>Pre-publication:</strong> Validating results</li>
           </ol>
         </section>
 
         <section>
-          <h3>Overview</h3>
+          <h3>Systematic Prototyping</h3>
+          <p>The problem (hypothesis) has now been identified</p>
+          <p>Next, how to resolve?</p>
+          <p>Prototype different approaches</p>
+          <p>Build upon working prototype</p>
+          <p><strong>Systematic solution:</strong> Version control</p>
+        </section>
+
+        <section>
+          <h3>Retaining Results</h3>
+          <p>Version control tracks source code, not results</p>
+          <p>Need somewhere to store results, e.g. a database</p>
+          <p>Also, prototyping is more free-form</p>
+          <p><em>Many tweaks aren't worth committing</em></p>
+          <p><strong>Free-form solution:</strong> Electronic lab notebook</p>
+        </section>
+
+        <section>
+          <h3>Enter FGLab</h3>
           <figure>
             <img src="client-server.png">
             <figcaption>FGLab (server) with FGMachines (clients)</figcaption>
           </figure>
+          <p>Node.js + MongoDB: Open source + cross-platform</p>
+        </section>
+
+        <section>
+          <h3>Setup</h3>
+          <p>FGLab on one node</p>
+          <p>MongoDB on one node (or several)</p>
+          <p>FGMachine(s) on compute node(s)</p>
+          <p>For distribution, FGLab and FGMachine(s)<br>must be HTTP-accessible</p>
+          <p>Single node setup is easy (use <code>localhost</code>)</p>
+        </section>
+
+        <section>
+          <h3>Workflow</h3>
+          <p>Choose program options via FGLab GUI/HTTP API</p>
+          <p>Submit to available FGMachine</p>
+          <p>FGMachine spawns program, sends back results</p>
+          <p><em>Works with existing code*</em></p>
+          <p style="font-size: 0.7em;">*Command-line inputs, file outputs</p>
+          <p>JSON parsed, arbitrary files stored in MongoDB GridFS</p>
         </section>
 
         <section>
           <h3>Projects</h3>
+          <p>How does FGMachine know what to do?</p>
           <figure>
             <img src="project-id.png">
-            <figcaption>Project specified on FGLab, project implementation specified on FGMachine</figcaption>
           </figure>
+          <p><em>Project schema</em> stored on FGLab</em></p>
+          <p><em>Project implementation schema</em> stored on FGMachine</p>
+          <p><em>Language independent</em></p>
         </section>
 
         <section>
           <h2>Live Demo</h2>
+          <p><em>(with plenty more useful features)</em></p>
         </section>
       </div>
     </div>
