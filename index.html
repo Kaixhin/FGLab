@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/theme/sky.min.css" id="theme">
+    <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/css/zenburn.css">
     <style>
       .reveal section img {
         background: none;
@@ -33,11 +35,17 @@
       <div class="slides">
         <section>
           <img src="fglab-logo.png" style="max-width: 80%; margin: 0;">
-          <h2>Experimental Dashboard</h2>
+          <h2>Machine Learning Dashboard</h2>
           <p><a href="https://kaixhin.github.io/FGLab/">https://kaixhin.github.io/FGLab/</a></p>
           <hr>
           <p><a href="http://kaixhin.com">Kai Arulkumaran</a> / <a href="https://twitter.com/KaiLashArul">@KaiLashArul</a></p>
           <p>2016-02-17</p>
+        </section>
+
+        <section>
+          <h3>Foreword</h3>
+          <p><em>FGLab was designed for machine learning research<br>but is applicable to computational sciences in general</em></p>
+          <p><em>Key design criterion: Language independence</em></p>
         </section>
 
         <section>
@@ -50,9 +58,18 @@
         </section>
 
         <section>
+          <h3>Computational Sciences</h3>
+          <p>Research output is <em>data</em></p>
+          <p>Research <em>input</em> is <em>also data</em></p>
+          <p>Research <em>processing</em> (software) is <em>once again, data</em></p>
+          <p><em>Research data management</em> (RDM) underlies<br><strong>the entire process</strong></p>
+          <p>FGLab addresses RDM in the messy prototyping state</p>
+        </section>
+
+        <section>
           <h3>Systematic Prototyping</h3>
-          <p>The problem (hypothesis) has now been identified</p>
-          <p>Next, how to resolve?</p>
+          <p><strong>Stage 1:</strong> The hypothesis has now been identified</p>
+          <p><strong>Stage 2:</strong> How to resolve?</p>
           <p>Prototype different approaches</p>
           <p>Build upon working prototype</p>
           <p><strong>Systematic solution:</strong> Version control</p>
@@ -74,6 +91,7 @@
             <figcaption>FGLab (server) with FGMachines (clients)</figcaption>
           </figure>
           <p>Node.js + MongoDB: Open source + cross-platform</p>
+          <p>Wraps around <em>existing experiment code</em> to retain results</p>
         </section>
 
         <section>
@@ -86,29 +104,120 @@
         </section>
 
         <section>
-          <h3>Workflow</h3>
-          <p>Choose program options via FGLab GUI/HTTP API</p>
-          <p>Submit to available FGMachine</p>
-          <p>FGMachine spawns program, sends back results</p>
-          <p><em>Works with existing code*</em></p>
-          <p style="font-size: 0.7em;">*Command-line inputs, file outputs</p>
-          <p>JSON parsed, arbitrary files stored in MongoDB GridFS</p>
+          <h3>Requirements</h3>
+          <ul style="white-space: nowrap;">
+            <li>Permissions to run code on compute node(s)</li>
+            <li>Code accepts command-line inputs, outputs files</li>
+            <li>Node.js on compute node(s)</li>
+          </ul>
+          <p><strong>FGLab deployment:</strong> Local, Docker and Heroku</p>
+          <p><strong>FGMachine deployment:</strong> Local and Docker</p>
         </section>
 
         <section>
-          <h3>Projects</h3>
-          <p>How does FGMachine know what to do?</p>
-          <figure>
-            <img src="project-id.png">
-          </figure>
-          <p><em>Project schema</em> stored on FGLab</em></p>
-          <p><em>Project implementation schema</em> stored on FGMachine</p>
-          <p><em>Language independent</em></p>
+          <h3>Workflow</h3>
+          <p>Choose program options via FGLab GUI / HTTP API</p>
+          <p>Submit to available FGMachine</p>
+          <p>FGMachine spawns program, sends back results</p>
+          <p>JSON output parsed, other files stored<br>in MongoDB GridFS</p>
+        </section>
+
+        <section>
+          <section>
+            <h3>Projects</h3>
+            <p>How does FGMachine know what to do?</p>
+            <figure>
+              <img src="project-id.png">
+            </figure>
+            <p><em>Project schema</em> stored on FGLab</em></p>
+            <p><em>Project implementation schema</em> stored on FGMachine</p>
+            <p><strong>Language independent</strong></p>
+          </section>
+          <section>
+            <h3>Schema</h3>
+            <pre><code class="hljs" data-trim>
+{
+  "model": {
+    "type": "string",
+    "default": "cnn.v2"
+  },
+  "optimiser": {
+    "type": "enum",
+    "default": "adagrad",
+    "values": ["sgd", "rmsprop", "adagrad"]
+  },
+  "learningRate": {
+    "type": "float",
+    "default": 0.0001
+  }
+}
+            </code></pre>
+          </section>
+          <section>
+            <h3>Implementation Schema</h3>
+            <pre><code class="hljs" data-trim>
+{
+  "56c4ac8eb6880de25f15f7f8": {
+    "cwd": "./test",
+    "command": "node",
+    "args": ["mnist.js", "-enableGPU"],
+    "options": "single-dash",
+    "capacity": 0.1,
+    "results": "./test/experiments"
+  }
+}
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h3>Exploring Experiments</h3>
+          <p>Grid/random search hyperparameter exploration</p>
+          <p>Multi-sort and search results</p>
+          <p>Experiment notes textbox</p>
+          <p>Live stream of <code>stdout</code> and <code>stderr</code></p>
+        </section>
+
+        <section>
+          <h3>HTTP API</h3>
+          <p>Submit single experiment (set of options)</p>
+          <p>Submit batch experiments</p>
+          <p>Register webhooks (e.g. experiment completion)</p>
+        </section>
+
+        <section>
+          <h3>Examples</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Language</th>
+                <th>Domain</th>
+                <th>API</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MATLAB</td>
+                <td>Clustering</td>
+                <td>Graphs</td>
+              </tr>
+              <tr>
+                <td>Python</td>
+                <td>Bayesian optimisation</td>
+                <td>Webhooks</td>
+              </tr>
+              <tr>
+                <td>Lua</td>
+                <td>Reinforcement learning / neural networks</td>
+                <td>Docker</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section>
           <h2>Live Demo</h2>
-          <p><em>(with plenty more useful features)</em></p>
+          <p><em>(quick, non-exhaustive overview)</em></p>
         </section>
       </div>
     </div>
@@ -123,7 +232,9 @@
         center: true,
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
         // reveal.js plugins
-        dependencies: []
+        dependencies: [
+          {src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); }}
+        ]
       });
     </script>
   </body>
