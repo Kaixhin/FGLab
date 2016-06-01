@@ -42,18 +42,14 @@ app.post("/api/v1/webhooks", jsonParser, (req, res) => {
   var urlRegEx = /\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)\S+(?:[^\s`!\[\]{};:'".,?«»“”‘’]))/ig;
   // Validate
   if (!url || !urlRegEx.test(url)) {
-    res.status(400);
-    return res.send({error: "Invalid or empty URL"});
+    return res.status(400).send({error: "Invalid or empty URL"});
   } else if (objects !== "experiments") {
-    res.status(400);
-    return res.send({error: "Object is not 'experiments'"});
+    return res.status(400).send({error: "Object is not 'experiments'"});
   } else if (event !== "started" && event !== "finished") {
-    res.status(400);
-    return res.send({error: "Event is not 'started' or 'finished'"});
+    return res.status(400).send({error: "Event is not 'started' or 'finished'"});
   } else if (!objId) {
     // TODO Check object exists
-    res.status(400);
-    return res.send({error: "No object ID provided"});
+    return res.status(400).send({error: "No object ID provided"});
   }
 
   // Register with mediator
@@ -62,8 +58,7 @@ app.post("/api/v1/webhooks", jsonParser, (req, res) => {
     rp({uri: webhook.url, method: "POST", json: webhook, gzip: true})
     .catch(() => {}); // Ignore failures from missing webhooks
   });
-  res.status(201);
-  return res.send({status: "Registered", options: webhook});
+  return res.status(201).send({status: "Registered", options: webhook});
 });
 
 // Downloads file
@@ -108,8 +103,7 @@ app.get("/api/v1/:collection", (req, res, next) => {
 app.post("/api/v1/:collection", jsonParser, (req, res, next) => {
   req.collection.insertAsync(req.body, {})
   .then((result) => {
-    res.status(201);
-    res.send(result.ops[0]);
+    res.status(201).send(result.ops[0]);
   })
   .catch((err) => {
     next(err);
@@ -279,30 +273,25 @@ app.post("/api/v1/projects/:id/experiment", jsonParser, (req, res, next) => {
   db.projects.findByIdAsync(projId, {schema: 1})
   .then((project) => {
     if (project === null) {
-      res.status(400);
-      res.send({error: "Project ID " + projId + " does not exist"});
+      res.status(400).send({error: "Project ID " + projId + " does not exist"});
     } else {
       var obj = req.body;
 
       // Validate
       var validation = optionChecker(project.schema, obj);
       if (validation.error) {
-        res.status(400);
-        res.send(validation);
+        res.status(400).send(validation);
       } else {
         submitJob(projId, obj)
         .then((resp) => {
-          res.status(201);
-          res.send(resp);
+          res.status(201).send(resp);
         })
         .catch((err) => {
           // TODO Check comprehensiveness of error catching
           if (err.error === "No machine capacity available") {
-            res.status(501);
-            res.send(err);
+            res.status(501).send(err);
           } else if (err.error === "Experiment failed to run") {
-            res.status(500);
-            res.send(err);
+            res.status(500).send(err);
           } else {
             next(err);
           }
@@ -341,8 +330,7 @@ app.post("/api/v1/projects/:id/batch", jsonParser, (req, res, next) => {
   db.projects.findByIdAsync(projId, {schema: 1})
   .then((project) => {
     if (project === null) {
-      res.status(400);
-      res.send({error: "Project ID " + projId + " does not exist"});
+      res.status(400).send({error: "Project ID " + projId + " does not exist"});
     } else {
       var expList = req.body;
       // Validate
@@ -354,8 +342,7 @@ app.post("/api/v1/projects/:id/batch", jsonParser, (req, res, next) => {
         }
       }
       if (validationList.length > 0) {
-        res.status(400);
-        res.send(validationList[0]); // Send first validation error       
+        res.status(400).send(validationList[0]); // Send first validation error       
       } else {
         // Loop over jobs
         for (var j = 0; j < expList.length; j++) {
@@ -534,8 +521,7 @@ app.post("/api/v1/machines/:id/projects", jsonParser, (req, res, next) => {
   .then((result) => {
     // Fail if machine does not exist
     if (result === null) {
-      res.status(404);
-      return res.send({error: "Machine ID " + req.params.id + " does not exist"});
+      return res.status(404).send({error: "Machine ID " + req.params.id + " does not exist"});
     }
     // Register projects otherwise
     db.machines.updateByIdAsync(req.params.id, {$set: req.body})
@@ -648,8 +634,7 @@ app.use((err, req, res, next) => {
   if (res.headersSent) {
     return next(err); // Delegate to Express' default error handling
   }
-  res.status(500);
-  res.send("Error: " + err);
+  res.status(500).send("Error: " + err);
 });
 
 /* HTTP server */
