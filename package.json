@@ -32,8 +32,8 @@
     "express": "^5.0.0-alpha.2",
     "jade": "^1.11.0",
     "kerberos": "0.0.21",
-    "lodash": "^4.13.0",
-    "mongodb": "^2.1.19",
+    "lodash": "^4.13.1",
+    "mongodb": "^2.1.21",
     "mongoskin": "^2.1.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
@@ -50,7 +50,7 @@
     "gulp-git": "^1.7.2",
     "gulp-util": "^3.0.7",
     "minimist": "^1.2.0",
-    "run-sequence": "^1.2.0"
+    "run-sequence": "^1.2.1"
   },
   "engines": {
     "node": "6.x"
