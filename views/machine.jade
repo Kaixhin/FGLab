@@ -25,6 +25,8 @@ block content
       ul.list-unstyled
         - each gpu in machine.gpus
           li= gpu
+  h2 Capacity
+  button.btn.btn-warning.reset(type="button") Reset Capacity
   h2 Projects
   ul.list-unstyled
     - each project in projects
@@ -36,6 +38,29 @@ block scripts
       var host = "#{machine.address}".replace(/^http/, 'ws'); // WebSocket server address
       var ws = null; // WebSocket
       var $status = $("#machine-status"); // Machine status icon
+
+      // Reset machine capacity
+      $("button.reset").on("click", function() {
+        var $el = $(this);
+        var id = $el.data("id");
+
+        var confirmReset = confirm("Are you sure you want to reset this machine's capacity?");
+        if (confirmReset) {
+          // Reset capacity
+          $.ajax({
+            url: "#{machine.address}/capacity/reset",
+            type: "POST"
+          })
+          .then(function() {
+            alert("Capacity successfully reset.");
+          })
+          .catch(function(err) {
+            alert(err.statusText);
+          });
+        }
+        return false; // Stop event and propagation
+      });
+
 
       // Connects to WebSocket server
       var wsConnect = function() {
