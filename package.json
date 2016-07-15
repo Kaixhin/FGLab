@@ -33,7 +33,7 @@
     "jade": "^1.11.0",
     "kerberos": "0.0.21",
     "lodash": "^4.13.1",
-    "mongodb": "^2.1.21",
+    "mongodb": "^2.2.1",
     "mongoskin": "^2.1.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
@@ -47,10 +47,10 @@
     "gulp": "^3.9.1",
     "gulp-bump": "^2.2.0",
     "gulp-conventional-changelog": "^1.1.0",
-    "gulp-git": "^1.7.2",
+    "gulp-git": "^1.8.0",
     "gulp-util": "^3.0.7",
     "minimist": "^1.2.0",
-    "run-sequence": "^1.2.1"
+    "run-sequence": "^1.2.2"
   },
   "engines": {
     "node": "6.x"
