@@ -1,6 +1,6 @@
 {
   "name": "FGLab",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Future Gadget Laboratory",
   "main": "lab.js",
   "scripts": {

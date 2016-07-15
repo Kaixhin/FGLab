@@ -1,3 +1,13 @@
+<a name="0.7.3"></a>
+## [0.7.3](https://github.com/Kaixhin/FGLab/compare/0.7.2...v0.7.3) (2016-07-15)
+
+
+### Features
+
+* add reset capacity button([dc9e413](https://github.com/Kaixhin/FGLab/commit/dc9e413))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/Kaixhin/FGLab/compare/0.6.1...v0.6.1) (2016-01-30)
 
