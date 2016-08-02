@@ -20,8 +20,19 @@ block content
           input#schema.form-control-file(name="schema", type="file")
           small.text-muted Upload a valid project schema. The name of the JSON file will be used to name the project.
         button.btn.btn-primary(type="submit") Create Project
+    
+    .col-sm-6
+      h1 #[span.mega-octicon.octicon-device-desktop] Machines
+      ul#machines.list-unstyled
+        - each machine in machines
+          li
+            button.btn.btn-outline-danger.btn-sm.delete(data-type="machines", data-id="#{machine._id}", type="button") #[span.octicon.octicon-trashcan]
+            | &nbsp;
+            span(id="machine-status-#{machine._id}") ●
+            | &nbsp;
+            a(href="/machines/" + machine._id) #{machine.hostname}
 
-      br
+    .col-sm-12
       h2 Existing Projects
       table#projects.table
         thead
@@ -37,32 +48,21 @@ block content
           - each project in projects
             tr
               td
-                button.btn.btn-danger-outline.btn-sm.delete(data-type="projects", data-id="#{project._id}", type="button") #[span.octicon.octicon-trashcan]
+                button.btn.btn-outline-danger.btn-sm.delete(data-type="projects", data-id="#{project._id}", type="button") #[span.octicon.octicon-trashcan]
               td #{project._id}
               td #{project.name}
               td 
                 a(href="/projects/" + project._id)
-                  button.btn.btn-primary-outline.btn-sm(type="button") #[span.octicon.octicon-beaker]
+                  button.btn.btn-outline-primary.btn-sm(type="button") #[span.octicon.octicon-beaker]
               td 
                 a(href="/projects/" + project._id + "/optimisation")
-                  button.btn.btn-primary-outline.btn-sm(type="button") #[span.octicon.octicon-circuit-board]
+                  button.btn.btn-outline-primary.btn-sm(type="button") #[span.octicon.octicon-circuit-board]
               td 
                 a(href="/projects/" + project._id + "/experiments")
-                  button.btn.btn-primary-outline.btn-sm(type="button") #[span.octicon.octicon-list-ordered]
+                  button.btn.btn-outline-primary.btn-sm(type="button") #[span.octicon.octicon-list-ordered]
               td
                 select.form-control.c-select.add-to-machine
-                button.btn.btn-primary-outline.btn-sm.add-to-machine(type="button", data-id="#{project._id}") #[span.octicon.octicon-plus]
-
-    .col-sm-6
-      h1 #[span.mega-octicon.octicon-device-desktop] Machines
-      ul#machines.list-unstyled
-        - each machine in machines
-          li
-            button.btn.btn-danger-outline.btn-sm.delete(data-type="machines", data-id="#{machine._id}", type="button") #[span.octicon.octicon-trashcan]
-            | &nbsp;
-            span(id="machine-status-#{machine._id}") ●
-            | &nbsp;
-            a(href="/machines/" + machine._id) #{machine.hostname}
+                button.btn.btn-outline-primary.btn-sm.add-to-machine(type="button", data-id="#{project._id}") #[span.octicon.octicon-plus]
 
 block scripts
   script(src="/bower_components/lodash/dist/lodash.min.js")

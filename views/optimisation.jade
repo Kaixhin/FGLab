@@ -13,7 +13,7 @@ block content
           label.form-control-label.control-label.col-sm-2(for="#{key}") #{key}
           .col-sm-10(style="margin-bottom: 5px")
             input.form-control(type="text", value="#{val.default}", name="#{key}", id="#{key}", readonly)
-          .col-sm-2.col-sm-offset-2
+          .col-sm-2.offset-sm-2
             input.form-control.form-control-success(type="number", value="#{val.default}", step="any", data-key="#{key}", data-opt="min", required)
             small.text-muted min (inclusive)
           .col-sm-2
@@ -61,7 +61,7 @@ block content
         input.form-control.form-control-success(type="number", value="3600", min="1", name="_retry", id="_retry", required)
         small.text-muted Time (s) between retries after single failed experiment submission.
     .form-group.row
-      .col-sm-2.col-sm-offset-2
+      .col-sm-2.offset-sm-2
         button#grid-search.btn.btn-primary(type="submit") Grid Search
       .col-sm-2
         button#random-search.btn.btn-primary(type="submit") Random Search

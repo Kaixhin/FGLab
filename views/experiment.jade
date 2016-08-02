@@ -19,7 +19,7 @@ block content
   - if (experiment._status === "running")
     button#kill.btn.btn-danger Kill Experiment
 
-  dl.dl-horizontal
+  dl.row
     dt.col-sm-3 Status
     dd#status.col-sm-9 #{experiment._status} #[span.octicon]
     dt.col-sm-3 Project
@@ -43,6 +43,9 @@ block content
         dd.col-sm-9 #{val}
     dt.col-sm-3 Notes 
     dd.col-sm-9 #[textarea#notes.form-control(rows="3") #{experiment._notes}]
+    dt.col-sm-3 Logs
+    dd.col-sm-9 #[#logs]
+    dd.col-sm-9.offset-sm-3
     - if (experiment._files.length > 0)
       dt.col-sm-3 Files
       dd.col-sm-9
@@ -52,15 +55,11 @@ block content
         dt.col-sm-3 #{key}
         dd.col-sm-9= experiment[key]
     if experiment._charts
-      dt.col-sm-3 Charts
-      dd.col-sm-9
+      dt.col-sm-12 Charts
   if experiment._charts
     #charts
       each val, ind in experiment._charts
         div(id= "chart" + ind)
-  dl.dl-horizontal
-    dt.col-sm-3 Logs
-    dd.col-sm-9 #[#logs]
 
 block scripts
   script(src="/bower_components/d3/d3.min.js")
