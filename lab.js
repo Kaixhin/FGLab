@@ -25,7 +25,7 @@ app.use(favicon(path.join(__dirname, "public/favicon.ico"))); // Deal with favic
 app.use(express.static(path.join(__dirname, "public"), {index: false, maxAge: '1d'})); // Static directory
 app.use("/bower_components", express.static(path.join(__dirname, "bower_components"), {index: false, maxAge: '1d'})); // Bower components
 app.set("view engine", "jade"); // Jade template engine
-app.use(morgan("tiny")); // Log requests
+app.use(morgan("common")); // Log requests
 
 /* API */
 
