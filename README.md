@@ -48,6 +48,12 @@ sudo docker run -d --name mongodb mongo
 sudo docker run -d --name fglab --link mongodb:mongo -p 5080:5080 kaixhin/fglab
 ```
 
+Although not recommended, it is possible to adjust [project schema](#projects) and other parts of the database. This can be accomplished either by connecting directly to MongoDB or via a GUI such as [mongo-express](https://github.com/mongo-express/mongo-express).
+
+```sh
+sudo docker run -d --name mongo-express --link mongodb:mongo -p 8081:8081 mongo-express
+```
+
 ### Option 3: Heroku
 
 The deploy button provisions a free dyno running FGLab on [Heroku](https://www.heroku.com), with a free 500MB MongoDB database from [MongoLab](https://mongolab.com/).
