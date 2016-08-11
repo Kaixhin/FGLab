@@ -6,6 +6,11 @@ block title
 block styles
   link(href="/bower_components/bootstrap-table/dist/bootstrap-table.min.css", rel="stylesheet")
   //link(href="/bower_components/bootstrap-table/dist/extensions/sticky-header/bootstrap-table-sticky-header.css", rel="stylesheet")
+  // Fix for Bootstrap 3 CSS
+  style.
+    .pull-right {
+      float: right;
+    }
 
 block content 
   h1 #[span.mega-octicon.octicon-list-ordered] Project: #{project.name} #[small.text-muted (#{project._id})]
@@ -114,6 +119,7 @@ block scripts
         columns: columns,
         showColumns: true,
         data: experiments,
+        toolbarAlign: "right",
         //stickyHeader: true,
         showMultiSort: true,
         showExport: true,
