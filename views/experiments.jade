@@ -100,11 +100,13 @@ block scripts
     }
 
     $(function() {
+      // Switch to container-fluid
+      $(".container").toggleClass("container container-fluid");
+
       // Initialise experiment table
       $("#experiments").bootstrapTable({
-        classes: "table",
+        classes: "table table-sm table-hover",
         undefinedText: "",
-        striped: true,
         sortName: "_started",
         sortOrder: "desc",
         iconsPrefix: "octicon",
