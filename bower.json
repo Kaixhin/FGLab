@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "jquery": "~3.1.0",
-    "lodash": "~4.14.1",
+    "lodash": "~4.15.0",
     "bootstrap": "4.0.0-alpha.3",
     "bootstrap-table": "~1.8.1",
     "octicons": "~4.3.0",

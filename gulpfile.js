@@ -29,9 +29,9 @@ gulp.task("github-release", function(cb) {
 // Abides by semantic versioning rules (http://semver.org/)
 gulp.task("bump-version", function() {
   // Valid bump types are major|minor|patch|prerelease
-  conventionalRecommendedBump({preset: "angular"}, function(err, releaseAs) {
+  conventionalRecommendedBump({preset: "angular"}, function(err, releaseType) {
     return gulp.src(["./bower.json", "./package.json"])
-    .pipe(bump({type: releaseAs}).on("error", gutil.log))
+    .pipe(bump({type: releaseType}).on("error", gutil.log))
     .pipe(gulp.dest("./"));   
   });
 });
