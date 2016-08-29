@@ -4,10 +4,9 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 [![Docker Pulls](https://img.shields.io/docker/pulls/kaixhin/fglab.svg)](https://hub.docker.com/r/kaixhin/fglab/)
 [![Docker Stars](https://img.shields.io/docker/stars/kaixhin/fglab.svg)](https://hub.docker.com/r/kaixhin/fglab/)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/Kaixhin/FGLab?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # ![FGLab](public/images/fglab-logo.png)
-
-[![Join the chat at https://gitter.im/Kaixhin/FGLab](https://badges.gitter.im/Kaixhin/FGLab.svg)](https://gitter.im/Kaixhin/FGLab?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### **Quickstart: https://kaixhin.github.io/FGLab/**
 
