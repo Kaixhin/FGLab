@@ -22,7 +22,6 @@ var app = express();
 var jsonParser = bodyParser.json({limit: '100mb'}); // Parses application/json
 var upload = multer(); // Store files in memory as Buffer objects
 app.use(compression()); // Compress all Express requests
-app.use(bodyParser.urlencoded({extended: true})); // To parse login requests
 app.use(favicon(path.join(__dirname, "public/favicon.ico"))); // Deal with favicon requests
 app.use(express.static(path.join(__dirname, "public"), {index: false, maxAge: '1d'})); // Static directory
 app.use("/bower_components", express.static(path.join(__dirname, "bower_components"), {index: false, maxAge: '1d'})); // Bower components
