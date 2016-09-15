@@ -108,6 +108,14 @@ Note that machines are implementation-independent, and may well store their own 
 
 Examples utilising the range of abilities of FGLab/FGMachine can be found in the [examples folder](examples).
 
+## Password protection
+
+Just set up PASSWORD variable without and quotes in .env file to protect your FGLab with a password. Note: you should type in that password into password field, when prompted to.
+Example:
+```
+PASSWORD=friend
+```
+
 ## API
 
 The API is largely undocumented due to ongoing development introducing breaking changes. Ongoing documentation is available in [RAML](http://raml.org/): [api.raml](api.raml). The following are noted for convenience:
