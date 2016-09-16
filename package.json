@@ -29,6 +29,7 @@
     "compression": "^1.6.2",
     "dotenv": "^2.0.0",
     "express": "^5.0.0-alpha.2",
+    "http-auth": "^2.4.10",
     "jade": "^1.11.0",
     "kerberos": "0.0.21",
     "lodash": "^4.15.0",
