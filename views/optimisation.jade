@@ -34,8 +34,8 @@ block content
         .form-group.row.has-success(data-type="#{val.type}")
           label.form-control-label.control-label.col-sm-2 #{key}
           .col-sm-10
-            label.checkbox-inline #[input(type="checkbox", value="true", name="#{key}", data-type="#{val.type}", checked)] true
-            label.checkbox-inline #[input(type="checkbox", value="false", name="#{key}", data-type="#{val.type}", checked)] false
+            label.form-check-inline #[input.form-check-inline(type="checkbox", value="true", name="#{key}", data-type="#{val.type}", checked)] true
+            label.form-check-inline #[input.form-check-inline(type="checkbox", value="false", name="#{key}", data-type="#{val.type}", checked)] false
       else if (val.type === "string")
         .form-group.row.has-success(data-type="#{val.type}")
           label.form-control-label.control-label.col-sm-2(for="#{key}") #{key}
@@ -47,7 +47,7 @@ block content
           label.form-control-label.control-label.col-sm-2 #{key}
           .col-sm-10
             each value in val.values
-              label.checkbox-inline #[input(type="checkbox", value="#{value}", name="#{key}", data-type="#{val.type}", checked)] #{value}
+              label.form-check-inline #[input.form-check-inline(type="checkbox", value="#{value}", name="#{key}", data-type="#{val.type}", checked)] #{value}
     hr
     p #[strong Random / Grid Search Options]
     .form-group.row.has-success(data-type="_evaluations")
