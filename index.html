@@ -8,10 +8,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/css/theme/sky.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/sky.min.css" id="theme">
     <!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/lib/css/zenburn.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/css/zenburn.css">
     <style>
       .reveal section img {
         background: none;
@@ -34,27 +34,25 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <img src="fglab-logo.png" style="max-width: 80%; margin: 0;">
-          <h2>Machine Learning Dashboard</h2>
+          <img src="fglab-logo.png" style="max-width: 75%; margin: 0;">
+          <h2 style="font-size: 1.8em;">Experimental Dashboard</h2>
           <p><a href="https://kaixhin.github.io/FGLab/">https://kaixhin.github.io/FGLab/</a></p>
           <hr>
           <p><a href="http://kaixhin.com">Kai Arulkumaran</a> / <a href="https://twitter.com/KaiLashArul">@KaiLashArul</a></p>
-          <p>2016-02-17</p>
+          <p>2016-10-27</p>
         </section>
 
         <section>
-          <h3>Foreword</h3>
-          <p><em>FGLab was designed for machine learning research<br>but is applicable to computational sciences in general</em></p>
-          <p><em>Key design criterion: Language independence</em></p>
+          <h3>Summary</h3>
+          <p>Manages your computational experiments</p>
+          <p>Wraps around existing code (language independent)</p>
+          <p>Stores experiment parameters and results</p>
+          <p>It's an <strong>electronic lab notebook</strong></p>
         </section>
 
         <section>
-          <h3>Stages in Science</h3>
-          <ol style="white-space: nowrap;">
-            <li><strong>Exploration:</strong> Forming hypotheses</li>
-            <li class="fragment highlight-blue"><strong>Prototyping:</strong> Forming methodology</li>
-            <li><strong>Pre-publication:</strong> Validating results</li>
-          </ol>
+          <h3>Organised Experiments</h3>
+          <img src="https://kaixhin.github.io/FGLab/images/experiments.png" style="max-width: 100%; margin: 0;">
         </section>
 
         <section>
@@ -67,7 +65,7 @@
         </section>
 
         <section>
-          <h3>Systematic Prototyping</h3>
+          <h3>Scientific Process</h3>
           <p><strong>Stage 1:</strong> The hypothesis has now been identified</p>
           <p><strong>Stage 2:</strong> How to resolve?</p>
           <p>Prototype different approaches</p>
@@ -87,7 +85,7 @@
         <section>
           <h3>Enter FGLab</h3>
           <figure>
-            <img src="client-server.png">
+            <img src="https://kaixhin.github.io/FGLab/images/client-server.png">
             <figcaption>FGLab (server) with FGMachines (clients)</figcaption>
           </figure>
           <p>Node.js + MongoDB: Open source + cross-platform</p>
@@ -123,11 +121,16 @@
         </section>
 
         <section>
+          <h3>(Un)structured results</h3>
+          <img src="https://kaixhin.github.io/FGLab/images/experiment.png" style="max-width: 100%; margin: 0;">
+        </section>
+
+        <section>
           <section>
             <h3>Projects</h3>
             <p>How does FGMachine know what to do?</p>
             <figure>
-              <img src="project-id.png">
+              <img src="https://kaixhin.github.io/FGLab/images/project-id.png">
             </figure>
             <p><em>Project schema</em> stored on FGLab</em></p>
             <p><em>Project implementation schema</em> stored on FGMachine</p>
@@ -172,10 +175,16 @@
 
         <section>
           <h3>Exploring Experiments</h3>
-          <p>Grid/random search hyperparameter exploration</p>
-          <p>Multi-sort and search results</p>
           <p>Experiment notes textbox</p>
           <p>Live stream of <code>stdout</code> and <code>stderr</code></p>
+          <hr>
+          <p>Multi-sort and search results</p>
+          <p>Grid/random search hyperparameter exploration</p>
+        </section>
+
+        <section>
+          <h3>Hyperparameter Optimisation</h3>
+          <img src="https://kaixhin.github.io/FGLab/images/optimisation.png" style="max-width: 100%; margin: 0;">
         </section>
 
         <section>
@@ -215,9 +224,17 @@
           </table>
         </section>
 
-        <section>
+        <!--<section>
           <h2>Live Demo</h2>
           <p><em>(quick, non-exhaustive overview)</em></p>
+        </section>-->
+
+        <section>
+          <h2>Thanks</h2>
+          <p><a href="https://kaixhin.github.io/FGLab/">Overview and Quickstart</a></p>
+          <p>Open source on Github: <a href="https://github.com/Kaixhin/FGLab">FGLab</a> + <a href="https://github.com/Kaixhin/FGMachine">FGMachine</a></p>
+          <p><a href="https://gitter.im/Kaixhin/FGLab">Gitter chatroom</a></p>
+          <p>Questions?</p>
         </section>
       </div>
     </div>
