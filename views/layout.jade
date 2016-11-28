@@ -18,17 +18,13 @@ html(lang="en")
 
   body
     nav#nav.navbar.navbar-dark.bg-inverse
-      span.navbar-brand FGLab
-      ul.nav.navbar-nav
-        li.nav-item
-          a.nav-link(href="/") #[span.octicon.octicon-home]
-        li.nav-item
-          a.nav-link(href="javascript:history.back()") #[span.octicon.octicon-chevron-left]
-        li.nav-item
-          a.nav-link(href="javascript:history.forward()") #[span.octicon.octicon-chevron-right]
-      ul.nav.navbar-nav.pull-xs-right
-        li.nav-item
-          a.nav-link #[span#server-status.octicon.octicon-server]
+      img.navbar-brand(src="/images/fglab-logo.png" height="35" alt="FGLab" style="filter: invert(100%);")
+      .nav.navbar-nav
+        a.nav-item.nav-link(href="/") #[span.octicon.octicon-home]
+        a.nav-item.nav-link(href="javascript:history.back()") #[span.octicon.octicon-chevron-left]
+        a.nav-item.nav-link(href="javascript:history.forward()") #[span.octicon.octicon-chevron-right]
+      .nav.navbar-nav.float-xs-right
+        a.nav-item.nav-link #[span#server-status.octicon.octicon-server]
     .container
       block content
     script(src="/bower_components/jquery/dist/jquery.min.js")
