@@ -36,7 +36,9 @@ FGLab tries to follow the [SemVer](http://semver.org/) standard whenever possibl
   - MONGODB_URI (MongoDB database URI)
   - FGLAB_PORT (port)
 
-Run `node lab` (or `npm start`) to start FGLab. You can now access the user interface from a browser on the current machine at `http://localhost:<FGLAB_PORT>`, where `<FGLAB_PORT>` is 5080 by default. Please read the [overview](#overview) to understand how FGLab and FGMachine cooperate - both are needed in order to run experiments. Afterwards, you should set up instances of [FGMachine](https://github.com/Kaixhin/FGMachine).
+Run `node lab` (or `npm start`) to start FGLab. You can now access the user interface from a browser on the current machine at `http://localhost:<FGLAB_PORT>`, where `<FGLAB_PORT>` is 5080 by default. For *remote access*, you need to be able to access the machine FGLab is running on from your remote machine via a local network or the internet. Given the default port, you would replace `http://localhost:5080` with `http://lan-hostname:5080` or `http://public-address.com:5080`, respectively.
+
+Please read the [overview](#overview) to understand how FGLab and FGMachine cooperate - both are needed in order to run experiments. Afterwards, you should set up instances of [FGMachine](https://github.com/Kaixhin/FGMachine).
 
 To update, run `npm run update`.
 
