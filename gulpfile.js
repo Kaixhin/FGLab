@@ -12,7 +12,7 @@ var conventionalGithubReleaser = require("conventional-github-releaser");
 var conventionalRecommendedBump = require("conventional-recommended-bump");
 
 // Load CONVENTIONAL_GITHUB_RELEASER_TOKEN from .env
-require("dotenv").config({silent: true});
+require("dotenv").config();
 var options = parseArgs(process.argv.slice(2), {string: ["github_token"], default: {github_token: process.env.CONVENTIONAL_GITHUB_RELEASER_TOKEN}});
 
 // Changelogs use AngularJS convention (https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
