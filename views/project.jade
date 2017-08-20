@@ -18,11 +18,17 @@ block content
           .col-sm-9
             input.form-control(type="number", value="#{val.default}", step="any", name="#{key}", id="#{key}", required)
       else if (val.type === "bool")
-        // TODO Consider replacing with two radio buttons
         .form-group.row
           label.form-control-label.control-label.col-sm-3(for="#{key}") #{key}
           .col-sm-9
-            input.form-control(type="text", value="#{val.default}", pattern="(true|false)", title="Enter true or false", name="#{key}", id="#{key}", required)
+            .form-check.form-check-inline
+              label.form-check-label
+                input.form-check-input(type="radio", name="#{key}", id="#{key}-true", value="true", checked=val.default, required)
+                span True
+            .form-check.form-check-inline
+              label.form-check-label
+                input.form-check-input(type="radio", name="#{key}", id="#{key}-false", value="false", checked=!val.default, required)
+                span False
       else if (val.type === "string")
         .form-group.row
           label.form-control-label.control-label.col-sm-3(for="#{key}") #{key}
@@ -86,28 +92,20 @@ block scripts
                 }
               }
             }
-          } else if ($el.attr("pattern")) {
-            if (val !== "true" && val !== "false") {
-              // Check bools
-              $el.addClass("form-control-error");
-              $formGroup.addClass("has-error");
-              hasErrors = true;
-            } else {
-              // Convert bools
+          } else if ($el.attr("type") === "radio") {
+            // Convert bools
+            if ($el.is(":checked")) {
               val = (val === "true");
               $el.addClass("form-control-success");
               $formGroup.addClass("has-success");
+            } else {
+              // Prevent "false" overwriting true
+              val = (val === "false");
             }
           } else {
-            if (val === "") {
-              // Check strings
-              $el.addClass("form-control-error");
-              $formGroup.addClass("has-error");
-              hasErrors = true;
-            } else {
-              $el.addClass("form-control-success");
-              $formGroup.addClass("has-success");
-            }
+            // Do not check enums or strings (allow empty)
+            $el.addClass("form-control-success");
+            $formGroup.addClass("has-success");
           }
           formObj[name] = val; // Set key and value
         });
