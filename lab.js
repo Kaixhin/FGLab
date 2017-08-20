@@ -668,8 +668,6 @@ if (!process.env.FGLAB_PORT) {
 /* WebSocket server */
 // Add websocket server
 var wss = new WebSocketServer({server: server});
-// Catches errors to prevent FGMachine crashing if browser disconnect undetected
-var wsErrHandler = function() {};
 
 // Call on connection from new client
 wss.on("connection", (ws) => {
