@@ -8,7 +8,7 @@ env:
     - MONGODB_URL="mongo://travis:test@localhost:27017"
 before_script:
   - sleep 15
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 cache:
   directories:
     - node_modules
