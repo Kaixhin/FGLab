@@ -46,9 +46,9 @@
     "conventional-github-releaser": "^1.1.13",
     "conventional-recommended-bump": "^0.3.0",
     "gulp": "^3.9.1",
-    "gulp-bump": "^2.8.0",
+    "gulp-bump": "^2.9.0",
     "gulp-conventional-changelog": "^1.1.7",
-    "gulp-git": "^2.4.1",
+    "gulp-git": "^2.5.0",
     "gulp-util": "^3.0.8",
     "minimist": "^1.2.0",
     "run-sequence": "^1.2.2"
